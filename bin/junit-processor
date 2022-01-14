@@ -10,13 +10,13 @@ program
   .option("-s, --removeSkipped", "remove skipped testcases")
   .option("-e, --removeErrors", "remove testcases with errors")
   .option("-f, --removeFailures", "remove testcases with failures")
-  .requiredOption(
+  .option(
     "-o, --out <outputfile>",
     "file to output to",
     "./junit-new.xml"
   )
   .option("-d, --debug", "print debug information")
-  .arguments("<junit.xml>");
+  .arguments("<inputJunitXMLfile>");
 
 program.parse(process.argv);
 
