@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+"use strict";
+
+var packageInfo = require("../package.json");
+var junitXmlProcessor = require("../lib/index.js");
+var program = require("commander");
+
+program
+  .version(packageInfo.version)
+  .option("-s, --removeSkipped", "remove skipped testcases")
+  .option("-e, --removeErrors", "remove testcases with errors")
+  .option("-f, --removeFailures", "remove testcases with failures")
+  .requiredOption(
+    "-o, --out <outputfile>",
+    "file to output to",
+    "./junit-new.xml"
+  )
+  .option("-d, --debug", "print debug information")
+  .arguments("<junit.xml>");
+
+program.parse(process.argv);
+
+if (!program.args.length > 0) {
+  console.error("ERROR: Missing file to process...");
+  program.help();
+} else {
+  const options = program.opts();
+  var processorOptions = {
+    inputFile: program.args[0],
+    outputFile: options.out,
+    removeSkipped: options.removeSkipped,
+    removeErrors: options.removeErrors,
+    removeFailures: options.removeFailures,
+    debug: options.debug
+  }
+  junitXmlProcessor.process(processorOptions);
+}

@@ -1,0 +1,27 @@
+{
+  "name": "junit-processor",
+  "version": "0.0.1",
+  "description": "A JUnit XML post processing utility, for cleanup and similar purposes",
+  "main": "index.js",
+  "bin": "./bin/junit-processor",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitcoder/junit-processor.git"
+  },
+  "keywords": [
+    "junit"
+  ],
+  "author": "Sergio Freire <sergio.freire@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/bitcoder/junit-processor/issues"
+  },
+  "homepage": "https://github.com/bitcoder/junit-processor#readme",
+  "dependencies": {
+    "commander": "^8.3.0",
+    "xml2js": "^0.4.23"
+  }
+}
