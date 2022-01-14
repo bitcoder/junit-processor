@@ -1,6 +1,12 @@
 # junit-processor
 
-A JUnit XML post processing utility, for cleanup and similar purposes
+[![NPM version](https://img.shields.io/npm/v/junit-processor.svg)](https://www.npmjs.com/package/junit-processor) [![License](https://img.shields.io/github/license/bitcoder/junit-processor.svg)](https://github.com/bitcoder/junit-processor/blob/master/LICENSE)
+[![NPM downloads](https://img.shields.io/npm/dw/junit-processor.svg)](https://www.npmjs.com/package/junit-processor)
+
+
+A JUnit XML post processing utility, for cleaning up, modifying some data on these reports, or even do some other operations on these reports.
+Please consider this highly experimental :)
+
 
 ## Features
 
@@ -20,22 +26,30 @@ Or just download the repository and include it in your `node_modules` directly.
 ### Usage
 
  ```
- Usage: junit-processor [options] <junit.xml>
+Usage: junit-processor [options] <inputJunitXMLfile>
 
 
-  Options:
-
-    -V, --version           output the version number
-    -h, --help              output usage information
+Options:
+  -V, --version           output the version number
+  -s, --removeSkipped     remove skipped testcases
+  -e, --removeErrors      remove testcases with errors
+  -f, --removeFailures    remove testcases with failures
+  -o, --out <outputfile>  file to output to (default: "./junit-new.xml")
+  -d, --debug             print debug information
+  -h, --help              display help for command
 ```
 
 ## Contributing
 
-Feel free to submit issues and/or PRs!  In lieu of a formal style guide,  please follow existing styles.
+Feel free to submit issues and/or PRs! In lieu of a formal style guide,  please follow existing styles.
 
 ## Contact
 
 You can find me on [Twitter](https://twitter.com/darktelecom).
+
+## Acknowledgments
+
+This work was highly based on previous work from [junit-merge](https://github.com/drazisil/junit-merge)
 
 ## LICENSE
 
