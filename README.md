@@ -1,5 +1,6 @@
 # junit-processor
-A JUnit XML processor
+
+A JUnit XML post processing utility, for cleanup and similar purposes
 
 ## Features
 
