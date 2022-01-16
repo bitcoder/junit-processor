@@ -29,12 +29,12 @@ Or just download the repository and include it in your `node_modules` directly.
  ```
 Usage: junit-processor [options] <inputJunitXMLfile>
 
-
 Options:
   -V, --version           output the version number
   -s, --removeSkipped     remove skipped testcases
   -e, --removeErrors      remove testcases with errors
   -f, --removeFailures    remove testcases with failures
+  -x, --schema            validate against known schemas
   -o, --out <outputfile>  file to output to (default: "./junit-new.xml")
   -d, --debug             print debug information
   -h, --help              display help for command
