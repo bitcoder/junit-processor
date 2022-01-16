@@ -44,6 +44,21 @@ Options:
 ## Contributing
 
 Feel free to submit issues and/or PRs! In lieu of a formal style guide,  please follow existing styles.
+Please check the following commands that may be useful while developing and testing.
+
+
+Linting/checking for JS syntax:
+
+    npm run lint
+    
+    
+Running tests:
+
+    npm test
+    
+Checking code coverage:
+
+    npm run coverage
 
 ## Contact
 
