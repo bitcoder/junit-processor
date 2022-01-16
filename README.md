@@ -13,6 +13,7 @@ Please consider this highly experimental :)
 
 - remove `testcase` elements that are marked as skipped, or that have failures or errors
 - updates test counters on parent `testsuite` element
+- validate JUnit XML report against known schemas (e.g., jenkins, ant)
 
 ## Nice-2-have
 
