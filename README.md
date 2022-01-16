@@ -1,5 +1,6 @@
 # junit-processor
 
+[![build workflow](https://github.com//bitcoder/junit-processor/actions/workflows/build.yml/badge.svg)](https://github.com/X/bitcoder/junit-processor/actions/workflows/build.yml)
 [![NPM version](https://img.shields.io/npm/v/junit-processor.svg)](https://www.npmjs.com/package/junit-processor) [![License](https://img.shields.io/github/license/bitcoder/junit-processor.svg)](https://github.com/bitcoder/junit-processor/blob/main/LICENSE)
 [![NPM downloads](https://img.shields.io/npm/dw/junit-processor.svg)](https://www.npmjs.com/package/junit-processor)
 
