@@ -9,9 +9,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - node-version: 10.x
           - node-version: 12.x
           - node-version: 14.x
+          - node-version: 16.x
 
     steps:
     - uses: actions/checkout@v1
