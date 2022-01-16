@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="hazelnut.osuosl.org" name="net.cars.engine.MoteurTest" tests="6" time="0.021" timestamp="2007-11-02T23:13:50">
+  <properties>
+    <property name="java.vendor" value="IBM Corporation" />
+    <property name="os.name" value="Linux" />
+    <!-- more property tags-->
+  </properties>
+  <testcase classname="net.cars.engine.MoteurTest" name="hasBougie" time="0.0010" />
+  <testcase classname="net.cars.engine.MoteurTest" name="hasCarburatueur" time="0.0010" />
+  <!-- more testcase tags-->
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
