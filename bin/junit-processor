@@ -10,6 +10,7 @@ program
   .option("-s, --removeSkipped", "remove skipped testcases")
   .option("-e, --removeErrors", "remove testcases with errors")
   .option("-f, --removeFailures", "remove testcases with failures")
+  .option("-x, --schema", "validate against known schemas")
   .option(
     "-o, --out <outputfile>",
     "file to output to",
@@ -25,13 +26,29 @@ if (!program.args.length > 0) {
   program.help();
 } else {
   const options = program.opts();
-  var processorOptions = {
-    inputFile: program.args[0],
-    outputFile: options.out,
-    removeSkipped: options.removeSkipped,
-    removeErrors: options.removeErrors,
-    removeFailures: options.removeFailures,
-    debug: options.debug
+
+  if (options.schema) {
+    // validate schema
+    var processorOptions = {
+      inputFile: program.args[0],
+      debug: options.debug
+    };
+    var schemasOk = junitXmlProcessor.validate(processorOptions);
+    process.exit((schemasOk.length > 0) ? 0 : 1);
+  } else {
+    // process and modify XML
+    var processorOptions = {
+      inputFile: program.args[0],
+      removeSkipped: options.removeSkipped,
+      removeErrors: options.removeErrors,
+      removeFailures: options.removeFailures,
+      debug: options.debug
+    };
+    try {
+      var res = junitXmlProcessor.handle(processorOptions);
+      junitXmlProcessor.writeXML(options.out, res);
+    } catch (error) {
+      console.error(error.message);
+    }
   }
-  junitXmlProcessor.process(processorOptions);
 }
