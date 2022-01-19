@@ -119,6 +119,20 @@ describe("XML handling", function() {
       });
 });
 
+describe("patches", function() {
+    it("patch 1 - should cleanup testcase name from Karate", function() {
+        const options = {
+            inputFile: './test/fixtures/TEST-demo.cats.CatsRunner.xml',
+            patches: [ '1' ]
+        };
+        var res = junitXmlProcessor.handle(options);
+
+        var xml = parseXMLString(res);
+        xml.testsuite.testcase[0]['$'].name.should.equal("create and retrieve a cat");
+        xml.testsuite.testcase[1]['$'].name.should.equal("Some other stuff");
+      });
+});
+
 describe("XML schema validation", function() {
 
     before(() => {

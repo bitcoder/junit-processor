@@ -11,6 +11,7 @@ program
   .option("-e, --removeErrors", "remove testcases with errors")
   .option("-f, --removeFailures", "remove testcases with failures")
   .option("-x, --schema", "validate against known schemas")
+  .option("-p, --patches <listOfIds>", "patches to apply, by their id, delimited by comma; see " + packageInfo.homepage)
   .option(
     "-o, --out <outputfile>",
     "file to output to",
@@ -37,11 +38,14 @@ if (!program.args.length > 0) {
     process.exit((schemasOk.length > 0) ? 0 : 1);
   } else {
     // process and modify XML
+    var patches = options.patches ? options.patches.split(',') : []; 
+
     var processorOptions = {
       inputFile: program.args[0],
       removeSkipped: options.removeSkipped,
       removeErrors: options.removeErrors,
       removeFailures: options.removeFailures,
+      patches: patches,
       debug: options.debug
     };
     try {
