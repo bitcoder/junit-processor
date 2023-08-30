@@ -54,6 +54,7 @@ Example for applying patch 1 on a JUnit XML file:
 Example for applying patch 1 and 3, in that order, on a JUnit XML file:
 
     junit-processor -p 1,3 some_junit_report.xml
+
 ### Patch 1
 
 This patch fixes the `name` attribute of `testcase` elements of JUnit XML reports produced by Karate DSL, in order to remove the line numbers which may change with time.
@@ -66,6 +67,44 @@ For example,
 becomes...
 
 `<testcase name="create and retrieve a cat" classname="[demo/cats/cats] cats end-point" time="0.248"/>`
+
+### Patch 2
+
+This patch enforces the `classname` attribute of `testcase` elements of JUnit XML reports to be `junit-processor`, even if doesn't exist.
+
+For example,
+
+`<testcase name="xx" time="0.248"/>`
+
+becomes...
+
+`<testcase name="xx" classname="junit-processor" time="0.248"/>`
+
+
+### Patch 3
+
+This patch creates one single `failure` element, in case `testcase` elements of JUnit XML contain more than one (such as the ones produced by TestComplete). The `failure` element will have one default `message` and the inner contents correspond to the concatenation of the original `failure` elements.
+
+For example,
+
+```xml
+    <testcase name="Invoice" time="18" classname="FleetApp">
+      <failure message="The property checkpoint failed, because Text does not equal (case-sensitive) &quot;150.0&quot;. See Details for additional information.">x1</failure>
+      <failure message="The test run has stopped because the test item is configured to stop on errors."></failure>
+    </testcase>
+```
+
+becomes...
+
+```xml
+    <testcase name="Invoice" time="18" classname="FleetApp">
+      <failure message="multiple failures">
+      The property checkpoint failed, because Text does not equal (case-sensitive) &quot;150.0&quot;. See Details for additional information.
+      x1
+      The test run has stopped because the test item is configured to stop on errors
+      </failure>
+    </testcase>
+```
 
 ## Contributing
 

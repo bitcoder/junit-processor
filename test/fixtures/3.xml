@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="FleetApp" tests="5"  failures="2" errors="0" time="141" >
+  <testsuite name="FleetApp" tests="5" failures="2" errors="0" hostname="DT01654" time="141" timestamp="2023-08-29T09:25:56.362-05:00">
+    <testcase name="Invoice" time="18" classname="FleetApp">
+      <failure message="The property checkpoint failed, because Text does not equal (case-sensitive) &quot;150.0&quot;. See Details for additional information.">x1</failure>
+      <failure message="The test run has stopped because the test item is configured to stop on errors."></failure>
+    </testcase>
+    <testcase name="MenuItem" time="66" classname="FleetApp">
+      <failure message="Unable to find the object textnodeSystem2. See Details for additional information."></failure>
+      <failure message="The object &quot;textnodeSystem2&quot; does not exist.">x1</failure>
+      <failure message="The object &quot;textnodeSystem2.linkNavbardropdown&quot; does not exist.">x2</failure>
+      <failure message="Unable to find the object textnodeSystem2. See Details for additional information.">x3</failure>
+      <failure message="The object &quot;textnodeSystem2&quot; does not exist.">x4</failure>
+      <failure message="The object &quot;textnodeSystem2.linkNavbardropdown&quot; does not exist."></failure>
+      <failure message="There was an attempt to perform an action on a zero-sized window."></failure>
+    </testcase>
+    <testcase name="AddCards" time="8" classname="FleetApp">
+    </testcase>
+    <testcase name="AddPlates" time="17" classname="FleetApp">
+    </testcase>
+    <testcase name="AddVehicle" time="31" classname="FleetApp">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,6 +1,6 @@
 {
   "name": "junit-processor",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A JUnit XML post processing utility, for cleanup and similar purposes",
   "main": "index.js",
   "bin": "./bin/junit-processor",
