@@ -131,6 +131,31 @@ describe("patches", function() {
         xml.testsuite.testcase[0]['$'].name.should.equal("create and retrieve a cat");
         xml.testsuite.testcase[1]['$'].name.should.equal("Some other stuff");
       });
+
+      it("patch 2 - should enforce a classname", function() {
+        const options = {
+            inputFile: './test/fixtures/TEST-demo.cats.CatsRunner.xml',
+            patches: [ '2' ]
+        };
+        var res = junitXmlProcessor.handle(options);
+
+        var xml = parseXMLString(res);
+        xml.testsuite.testcase[0]['$'].classname.should.equal("junit-processor");
+        xml.testsuite.testcase[1]['$'].classname.should.equal("junit-processor");
+      });
+
+      it("patch 3 - should merge multiple failure elements", function() {
+        const options = {
+            inputFile: './test/fixtures/3.xml',
+            patches: [ '3' ]
+        };
+        var res = junitXmlProcessor.handle(options);
+
+        var xml = parseXMLString(res);
+        xml.testsuites.testsuite[0].testcase[0].failure.length.should.equal(1);
+        xml.testsuites.testsuite[0].testcase[0].failure[0]['$'].message.should.equal("multiple failures");
+        xml.testsuites.testsuite[0].testcase[0].failure[0]['_'].should.equal('The property checkpoint failed, because Text does not equal (case-sensitive) "150.0". See Details for additional information.\nx1\nThe test run has stopped because the test item is configured to stop on errors.\n');
+      });
 });
 
 describe("XML schema validation", function() {
