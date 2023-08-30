@@ -152,7 +152,7 @@ describe("patches", function() {
         var res = junitXmlProcessor.handle(options);
 
         var xml = parseXMLString(res);
-        xml.testsuites.testsuite[0].testcase[0].failure.length.should.equal(1)
+        xml.testsuites.testsuite[0].testcase[0].failure.length.should.equal(1);
         xml.testsuites.testsuite[0].testcase[0].failure[0]['$'].message.should.equal("multiple failures");
         xml.testsuites.testsuite[0].testcase[0].failure[0]['_'].should.equal('The property checkpoint failed, because Text does not equal (case-sensitive) "150.0". See Details for additional information.\nx1\nThe test run has stopped because the test item is configured to stop on errors.\n');
       });
