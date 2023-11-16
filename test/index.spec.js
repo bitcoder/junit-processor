@@ -156,6 +156,25 @@ describe("patches", function() {
         xml.testsuites.testsuite[0].testcase[0].failure[0]['$'].message.should.equal("multiple failures");
         xml.testsuites.testsuite[0].testcase[0].failure[0]['_'].should.equal('The property checkpoint failed, because Text does not equal (case-sensitive) "150.0". See Details for additional information.\nx1\nThe test run has stopped because the test item is configured to stop on errors.\n');
       });
+
+
+      it("patch 4 - should keep just the testcases with properties having the names test_key or requirement", function() {
+        const options = {
+            inputFile: './test/fixtures/4.xml',
+            patches: [ '4' ]
+        };
+        var res = junitXmlProcessor.handle(options);
+
+        var xml = parseXMLString(res);
+        // xml.testsuites['$'].tests.should.equal("3");
+        // xml.testsuites.testsuite[0]['$'].tests.should.equal("3");
+
+        xml.testsuites.testsuite[0].testcase.length.should.equal(1);
+        xml.testsuites.testsuite[0].testcase[0]['$'].name.should.equal("with failure");
+        xml.testsuites.testsuite[1].testcase.length.should.equal(2);
+        xml.testsuites.testsuite[1].testcase[0]['$'].name.should.equal("Test login page @CALC-1");
+        xml.testsuites.testsuite[1].testcase[1]['$'].name.should.equal('Test full report @slow');
+      });
 });
 
 describe("XML schema validation", function() {
