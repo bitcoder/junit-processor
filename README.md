@@ -106,6 +106,49 @@ becomes...
     </testcase>
 ```
 
+### Patch 4
+
+This patch removes all `testcase` elements, except the ones that have a `property` with `name` "requirements" or "test_key". These properties are usually provided by the xray-junit-extensions project to provide more info on the tests that Xray Test Management will consume.
+
+For example, the first `testcase` will be included while the second one won't.
+
+```xml
+    <testcase name="Test login page @CALC-1" classname="specs/tags.spec.mjs:3:1 › Test login page @CALC-1" time="3.767">
+        <properties>
+            <property name="test_key" value="CALC-2">
+            </property>
+            <property name="requirements" value="CALC-5">
+            </property>
+        </properties>
+        <system-out>
+            <![CDATA[
+        [[ATTACHMENT|test-results/specs-tags-Test-login-page-CALC-1/tmp_screenshot.png]]
+        ]]>
+        </system-out>
+    </testcase>
+
+    <testcase name="Invoice" time="18" classname="FleetApp">
+    </testcase>
+```
+
+After the patch, it becomes...
+
+```xml
+    <testcase name="Test login page @CALC-1" classname="specs/tags.spec.mjs:3:1 › Test login page @CALC-1" time="3.767">
+        <properties>
+            <property name="test_key" value="CALC-2">
+            </property>
+            <property name="requirements" value="CALC-5">
+            </property>
+        </properties>
+        <system-out>
+            <![CDATA[
+        [[ATTACHMENT|test-results/specs-tags-Test-login-page-CALC-1/tmp_screenshot.png]]
+        ]]>
+        </system-out>
+    </testcase>
+```
+
 ## Contributing
 
 Feel free to submit issues and/or PRs! In lieu of a formal style guide,  please follow existing styles.

@@ -1,5 +1,5 @@
-<testsuites id="" name="" tests="5" failures="0" skipped="2" errors="0" time="4.238">
-<testsuite name="specs/example.spec.mjs" timestamp="1642088240147" hostname="" tests="4" failures="0" skipped="2" time="3.792" errors="0">
+<testsuites id="" name="" tests="6" failures="0" skipped="2" errors="0" time="4.238">
+<testsuite name="specs/example.spec.mjs" timestamp="1642088240147" hostname="" tests="3" failures="0" skipped="2" time="3.792" errors="0">
 <testcase name="basic test" classname="specs/example.spec.mjs:17:1 › basic test" time="3.559">
 <system-out>
 <![CDATA[Finished basic test with status passed
@@ -17,6 +17,10 @@
 <testcase name="with failure" classname="specs/example.spec.mjs:28:1 › with failure" time="0.106">
 <failure>
 </failure>
+<properties>
+<property name="requirements" value="CALC-5">
+</property>
+</properties>
 </testcase>
 </testsuite>
 <testsuite name="specs/tags.spec.mjs" timestamp="1642088240147" hostname="" tests="2" failures="0" skipped="0" time="3.876" errors="0">
@@ -34,6 +38,10 @@
 </system-out>
 </testcase>
 <testcase name="Test full report @slow" classname="specs/tags.spec.mjs:15:1 › Test full report @slow" time="0.109">
+<properties>
+<property name="test_key" value="CALC-6">
+</property>
+</properties>
 </testcase>
 </testsuite>
 </testsuites>
